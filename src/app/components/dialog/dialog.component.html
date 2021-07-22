@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmación</h2>
+
+<label>¿Está seguro que desea eliminar el registro {{ selectedProduct.name }}?</label>
+
+<mat-dialog-actions class=container>
+    <button class="mat-raised-button" (click)="delete()">Eliminar</button>
+    <button class="mat-raised-button" (click) = "close()">Cerrar</button>
+</mat-dialog-actions>

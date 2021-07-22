@@ -1,0 +1,39 @@
+
+<main>
+    <div id="content" class="content">
+            <h2>LISTADO TEST ALICORP</h2>
+            <div class="container">
+                <mat-table #table [dataSource]="tableDataSource" class="products">
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef>Código</th>
+                        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                        <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+                        <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+                    </ng-container>
+    
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell  *matHeaderCellDef > Acción </mat-header-cell>
+                        <mat-cell *matCellDef="let element" >
+                             <button mat-fab color="primary" (click)="openDialog(element)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </mat-cell>
+                      </ng-container>
+                </mat-table>
+                <mat-paginator class="paginator" #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+            
+    </div>
+</main>
